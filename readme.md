@@ -1,0 +1,3 @@
+gameserverdemo.database.windows.net
+demoadmin
+Java1234

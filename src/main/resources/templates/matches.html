@@ -1,0 +1,49 @@
+<!-- src/main/resources/templates/matches.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Match History</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .winner {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-4">
+    <h1>Match History</h1>
+    <form action="#" th:action="@{/matches}" method="get">
+        <div class="form-group">
+            <label for="userName">Filter by Player:</label>
+            <input type="text" id="userName" name="userName" class="form-control" placeholder="Enter player name">
+        </div>
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>Match ID</th>
+            <th>Players</th>
+            <th>Result</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="match : ${matches}">
+            <td th:text="${match.matchId}"></td>
+            <td>
+            <span th:class="${match.winner.userId == match.user1.userId} ? 'winner' : ''"
+                  th:text="${match.user1.name}"></span>
+                <span> vs </span>
+                <span th:class="${match.winner.userId == match.user2.userId} ? 'winner' : ''"
+                      th:text="${match.user2.name}"></span>
+            <td th:text="${match.matchResult}"></td>
+            <td th:text="${match.matchDate}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

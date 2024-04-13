@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>User Profile</h2>
+    <div th:if="${user}">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title" th:text="${user.name}">Name</h4>
+                <p class="card-text">
+                    <strong>Biography:</strong> <span th:text="${user.biography}">Bio</span><br>
+                    <strong>Birthday:</strong> <span th:text="${#dates.format(user.birthday, 'dd MMMM yyyy')}">Birthday</span><br>
+                    <strong>Image:</strong>
+                    <img th:if="${user.imageId}" th:src="@{'/images/' + ${user.imageId}}" alt="User Image" class="img-fluid">
+                </p>
+            </div>
+        </div>
+    </div>
+    <div th:unless="${user}">
+        <p class="alert alert-danger">User not found</p>
+    </div>
+</div>
+</body>
+</html>
