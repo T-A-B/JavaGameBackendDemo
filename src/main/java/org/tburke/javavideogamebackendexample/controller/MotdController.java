@@ -17,7 +17,7 @@ public class MotdController {
 
     @GetMapping("/motd")
     public ResponseEntity<Motd> getMessageOfTheDay() {
-        Motd motd = motdService.getMessageOfTheDay(new Date()); // Assuming you want today's message
+        Motd motd = motdService.getMessageOfTheDay(new Date());
         if (motd != null) {
             return ResponseEntity.ok(motd);
         } else {

@@ -6,7 +6,7 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "[User]")  // Escaping the table name
+@Table(name = "[User]")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,14 +14,14 @@ public class User {
     private String name;
     private String password;
 
-    // New fields
-    private String imageId; // Assuming IMAGE_ID is stored as a string
-    @Column(length = 1000) // Optional: Customize the column definition
+
+    private String imageId;
+    @Column(length = 1000)
     private String biography;
-    @Temporal(TemporalType.DATE) // Only the date part is stored
+    @Temporal(TemporalType.DATE)
     private Date birthday;
 
-    // Getters and Setters
+
     public Long getUserId() {
         return userId;
     }
@@ -46,7 +46,7 @@ public class User {
         this.password = password;
     }
 
-    // Getters and setters for new fields
+
     public String getImageId() {
         return imageId;
     }

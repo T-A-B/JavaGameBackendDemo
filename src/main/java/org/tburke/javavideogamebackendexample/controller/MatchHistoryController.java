@@ -1,15 +1,12 @@
 package org.tburke.javavideogamebackendexample.controller;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.tburke.javavideogamebackendexample.models.MatchHistory;
-import org.tburke.javavideogamebackendexample.repo.UserRepository;
 import org.tburke.javavideogamebackendexample.service.MatchHistoryService;
-import org.tburke.javavideogamebackendexample.service.UserService;
 
 import java.util.List;
 
@@ -38,6 +35,6 @@ public class MatchHistoryController {
     @GetMapping("/high-scores")
     public String showHighScores(Model model) {
         model.addAttribute("highScores", service.calculateHighScores());
-        return "highScores";  // Ensure you have a corresponding Thymeleaf template
+        return "highScores";
     }
 }

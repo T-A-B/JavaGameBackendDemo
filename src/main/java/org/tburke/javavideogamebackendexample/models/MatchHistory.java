@@ -3,7 +3,7 @@ package org.tburke.javavideogamebackendexample.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "\"MatchHistory\"")  // Escaping the table name
+@Table(name = "\"MatchHistory\"")
 public class MatchHistory {
     @Id
     private Long matchId;
