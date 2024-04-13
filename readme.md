@@ -1,3 +1,5 @@
 gameserverdemo.database.windows.net
-demoadmin
-Java1234
+
+<br>demoadmin
+
+<br>Java1234
